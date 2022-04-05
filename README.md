@@ -10,13 +10,13 @@ Pagina creada para prueba de progrmacion en la empresa Codere
 *Sql Server
 
 
-###**Pantallas**⌨️
+##**Pantallas**⌨️
 Esta pagina Web se contiene una barra de menu:
 ![Image text](https://github.com/Weidmann16/PruebaCodere/blob/master/Images/Menu.jpg)
 
 Este menu contiene:
 
-###**Inicio**
+##**Inicio**
 ![Image text](https://github.com/Weidmann16/PruebaCodere/blob/master/Images/Inicio.jpg)
 
 ###**Empleados**
