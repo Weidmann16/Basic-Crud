@@ -1,8 +1,13 @@
 # PruebaCodere
 
-## FAQs
+## Prueba Codere CRUD
 ***
-A list of frequently asked questions
+Esta pagina Web se contiene una barra de menu
+https://github.com/Weidmann16/PruebaCodere/blob/master/Images/Menu.jpg
+Este CRUD se compone de dos tablas, la tabla Empleados y la tabla Grupos
+
+
+
 1. **This is a question in bold**
 Answer of the first question with _italic words_. 
 2. __Second question in bold__ 
