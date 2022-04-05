@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PruebaModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Puesto" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Sueldo" Type="int" />
+          <Property Name="Superior" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Grupo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="Codigo_Area" />
+          </Key>
+          <Property Name="Codigo_Area" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Oficina" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Grupo">
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="1" />
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="Codigo_Area" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="Grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PruebaModel1StoreContainer">
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grupo" EntityType="Self.Grupo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_Grupo" Association="Self.fk_Grupo">
+            <End Role="Grupo" EntitySet="Grupo" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PruebaModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Puesto" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sueldo" Type="Int32" />
+          <Property Name="Superior" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Grupo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Grupo1" Relationship="Self.fk_Grupo" FromRole="Empleados" ToRole="Grupo" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="Codigo_Area" />
+          </Key>
+          <Property Name="Codigo_Area" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Oficina" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Empleados" Relationship="Self.fk_Grupo" FromRole="Grupo" ToRole="Empleados" />
+        </EntityType>
+        <Association Name="fk_Grupo">
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="1" />
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="Codigo_Area" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="Grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PruebaEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+          <EntitySet Name="Grupo" EntityType="Self.Grupo" />
+          <AssociationSet Name="fk_Grupo" Association="Self.fk_Grupo">
+            <End Role="Grupo" EntitySet="Grupo" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PruebaModel1StoreContainer" CdmEntityContainer="PruebaEntities1">
+          <EntitySetMapping Name="Empleados">
+            <EntityTypeMapping TypeName="PruebaModel1.Empleados">
+              <MappingFragment StoreEntitySet="Empleados">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+                <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+                <ScalarProperty Name="Superior" ColumnName="Superior" />
+                <ScalarProperty Name="Grupo" ColumnName="Grupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupo">
+            <EntityTypeMapping TypeName="PruebaModel1.Grupo">
+              <MappingFragment StoreEntitySet="Grupo">
+                <ScalarProperty Name="Codigo_Area" ColumnName="Codigo_Area" />
+                <ScalarProperty Name="Nombre_Oficina" ColumnName="Nombre_Oficina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

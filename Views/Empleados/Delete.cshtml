@@ -1,0 +1,65 @@
+﻿@model PruebaCodere.Empleados
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Esta seguro que desea eliminar este Empleado?</h3>
+<div>
+    <h4>Empleados</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Puesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Puesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sueldo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sueldo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Superior)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Superior)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grupo1.Nombre_Oficina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grupo1.Nombre_Oficina)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver a Listado", "Index")
+        </div>
+    }
+</div>
