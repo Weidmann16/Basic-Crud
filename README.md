@@ -1,10 +1,16 @@
 # PruebaCodere
 
-## Prueba Codere CRUD
+## Prueba Codere CRUD 🚀
 ***
 Pagina creada para prueba de progrmacion en la empresa Codere
 
-**Pantallas**
+### Pre-requisitos 📋
+
+*Visual Studio 2022
+*Sql Server
+
+
+###**Pantallas**⌨️_
 Esta pagina Web se contiene una barra de menu:
 ![Image text](https://github.com/Weidmann16/PruebaCodere/blob/master/Images/Menu.jpg)
 
@@ -29,7 +35,7 @@ Informacion de contacto
 Informacion acerca del proyecto
 
 
-**Informacion Del Crud
+###**Informacion Del Crud
 
 Este CRUD se compone de dos tablas, la tabla Empleados y la tabla Grupos las cuale se les puede acceder en el menu
 
