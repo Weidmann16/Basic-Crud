@@ -4,7 +4,7 @@
 ***
 Esta pagina Web se contiene una barra de menu
 
-(https://github.com/Weidmann16/PruebaCodere/blob/master/Images/Menu.jpg)
+!(https://github.com/Weidmann16/PruebaCodere/blob/master/Images/Menu.jpg)
 Este CRUD se compone de dos tablas, la tabla Empleados y la tabla Grupos
 
 
