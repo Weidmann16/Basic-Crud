@@ -1,6 +1,6 @@
-# Prueba Codere CRUD 🚀
+# CRUD 🚀
 ***
-Pagina creada para prueba de progrmacion en la empresa Codere
+Actividad para la creacion de un Crud con .Net
 
 ## Pre-requisitos 📋
 
